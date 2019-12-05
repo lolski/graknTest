@@ -24,27 +24,31 @@ options:
       type: default
       url: https://repo.maven.apache.org/maven2/
     - id: mavengraknai
+      type: default
       url: https://repo.grakn.ai/repository/maven/
-    - id: mavengraknai-snapshot
-      url: https://repo.grakn.ai/repository/maven-snapshot/
   strictVisibility: true
   transitivity: runtime_deps
   versionConflictPolicy: highest
   thirdPartyDirectory: dependencies/maven/artifacts
 
 dependencies:
-
   io.grakn.protocol:
     grakn-protocol:
       version: "1.0.3"
       lang: java
-
   io.graql:
     graql-lang:
-      version: "1.0.4"
+      version: "1.0.5"
       lang: java
-
   io.grakn.client:
     grakn-client:
-      version: "1.6.0"
+      version: "1.6.1"
+      lang: java
+      exclude:
+        - "io.grpc:grpc-core"
+        - "io.grpc:grpc-stub"
+        - "io.grpc:grpc-netty"
+  io.grpc:
+    grpc-netty:
+      version: "1.16.0"
       lang: java
